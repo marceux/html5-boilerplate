@@ -1,4 +1,16 @@
-# [HTML5 Boilerplate](http://html5boilerplate.com)
+# Custom HTML5 Boilerplate Build
+
+This is a custom build of the popular HTML5 Boilerplate.
+
+* Twitter: [@marceux](http://twitter.com/marceux)
+
+## Differences from Standard HTML5 Boilerplate
+
+* Added Bootstrap
+* Added Font-Awesome
+* Removed Normalize
+
+# Original [HTML5 Boilerplate](http://html5boilerplate.com) Readme
 
 [![Build Status](https://travis-ci.org/h5bp/html5-boilerplate.svg)](https://travis-ci.org/h5bp/html5-boilerplate)
 [![devDependency Status](https://david-dm.org/h5bp/html5-boilerplate/dev-status.svg)](https://david-dm.org/h5bp/html5-boilerplate#info=devDependencies)
