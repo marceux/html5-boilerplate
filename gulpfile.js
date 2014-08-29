@@ -79,8 +79,7 @@ gulp.task('copy', [
     'copy:fa-font2',
     'copy:fa-font3',
     'copy:fa-font4',
-    'copy:misc',
-    'copy:normalize'
+    'copy:misc'
 ]);
 
 gulp.task('copy:.htaccess', function () {
@@ -202,11 +201,6 @@ gulp.task('copy:misc', function () {
         dot: true
 
     }).pipe(gulp.dest(template('<%= dist %>', dirs)));
-});
-
-gulp.task('copy:normalize', function () {
-    return gulp.src('node_modules/normalize.css/normalize.css')
-               .pipe(gulp.dest(template('<%= dist %>/css', dirs)));
 });
 
 gulp.task('jshint', function () {
