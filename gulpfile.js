@@ -90,6 +90,8 @@ gulp.task('copy:.htaccess', function () {
 gulp.task('copy:index.html', function () {
     return gulp.src(dirs.src + '/index.html')
                .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
+               .pipe(plugins.replace(/{{BOOTSTRAP_VERSION}}/g, pkg.devDependencies.bootstrap))
+               .pipe(plugins.replace(/{{FONTAWESOME_VERSION}}/g, pkg.devDependencies['font-awesome']))
                .pipe(gulp.dest(dirs.dist));
 });
 
