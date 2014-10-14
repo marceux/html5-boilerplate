@@ -79,6 +79,7 @@ gulp.task('copy', [
     'copy:fa-font2',
     'copy:fa-font3',
     'copy:fa-font4',
+    'copy:fa-font5',
     'copy:misc'
 ]);
 
