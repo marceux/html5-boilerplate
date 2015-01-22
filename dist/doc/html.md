@@ -82,13 +82,9 @@ browsing your site is treated to the best possible user experience that
 browser can offer.
 
 If possible, we recommend that you remove the `meta` tag and send only the
-HTTP response header as the `meta` tag:
-
-* breaks validation (see also: [Validating
-  X-UA-Compatible](http://groups.google.com/group/html5boilerplate/browse_thread/thread/6d1b6b152aca8ed2))
-* will not always work if your site is served on a non-standard port, as
-  Internet Explorer's preference option `Display intranet sites in Compatibility
-  View` is checked by default
+HTTP response header as the `meta` tag will not always work if your site is
+served on a non-standard port, as Internet Explorer's preference option
+`Display intranet sites in Compatibility View` is checked by default.
 
 If you are using Apache as your webserver, including the
 [`.htaccess`](https://github.com/h5bp/server-configs-apache) file takes care of
@@ -141,6 +137,32 @@ so that browsers lacking support for some of the new HTML5 elements are able to
 handle them properly. Therefore the Modernizr script is the only JavaScript
 file synchronously loaded at the top of the document.
 
+## What about polyfills?
+
+If you need to include [polyfills](https://remysharp.com/2010/10/08/what-is-a-polyfill)
+in your project, you must make sure those load before any other JavaScript. If you're
+using some polyfill CDN service, like [cdn.polyfill.io](http://cdn.polyfill.io/),
+just put it before the other scripts in the bottom of the page:
+
+```html
+    <script src="//cdn.polyfill.io/v1/polyfill.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
+```
+
+If you like to just include the polyfills yourself, you could include them in
+`js/plugins.js`. When you have a bunch of polyfills to load in, you could
+also create a `polyfills.js` file in the `js/vendor` directory. Also using
+this technique, make sure the polyfills are all loaded before any other
+Javascript.
+
+There are some misconceptions about Modernizr and polyfills. It's important
+to understand that Modernizr just handles feature checking, not polyfilling
+itself. The only thing Modernizr does regarding polyfills is that the team
+maintains [a huge list of cross Browser polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills).
 
 ## The content area
 
@@ -191,6 +213,7 @@ Further information:
   Snippet](https://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics)
 * [Introduction to
   Analytics.js](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+* [Google Analytics Demos & Tools](https://ga-dev-tools.appspot.com/)
 
 **N.B.** The Google Universal Analytics snippet is included by default mainly
 because Google Analytics is [currently one of the most popular tracking
